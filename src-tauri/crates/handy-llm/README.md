@@ -1,5 +1,7 @@
 # handy-llm
 
+The crate behind Handier's `handier-llm` sidecar binary.
+
 Out-of-process GGUF inference for Handier's transcript enhancement layer.
 
 Reads line-delimited JSON on stdin, writes one JSON response per line on stdout.

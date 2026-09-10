@@ -2,6 +2,8 @@
 
 **A fork of [Handy](https://github.com/cjpais/Handy) that cleans up your dictation before it lands.**
 
+_An independent fork: not affiliated with or endorsed by the Handy project._
+
 Handy is a free, open source, offline speech-to-text app: press a shortcut,
 speak, and your words appear in whatever text field you are in, without anything
 leaving your machine. Handier keeps all of that and adds one thing —
@@ -98,7 +100,7 @@ Handier at any GGUF on disk, with no Hugging Face upload in the loop. Set
 | ---------------------------- | ------------------------------------------- |
 | Fine-tuned for editing       | An empty system turn — for a chat fine-tune |
 | Fine-tuned from a base model | The Alpaca prompt as one turn               |
-| General-purpose model        | Handy's full instruction prompt             |
+| General-purpose model        | Handier's full instruction prompt           |
 
 Getting this wrong does not fail loudly, it fails _quietly_, so the setting is
 explicit rather than guessed. The tooling to train and measure your own is in
@@ -171,7 +173,7 @@ Handy isn't trying to be the best speech-to-text app—it's trying to be the mos
 
 1. **Press** a configurable keyboard shortcut: hold it to record and release to stop, or tap it to toggle recording on and off (Hold-only and Toggle-only modes are also available)
 2. **Speak** your words while the shortcut is active
-3. **Release** and Handy processes your speech using Whisper
+3. **Release** and Handier processes your speech using Whisper
 4. **Get** your transcribed text pasted directly into whatever app you're using
 
 The process is entirely local:
@@ -200,17 +202,9 @@ enhancement layer.
 
 For detailed build instructions including platform-specific requirements, see [BUILD.md](BUILD.md).
 
-## Integrations
-
-<a href="https://www.raycast.com/mattiacolombomc/handy" title="Install Handy Raycast Extension"><img src="https://www.raycast.com/mattiacolombomc/handy/install_button@2x.png?v=1.1" height="64" style="height: 64px;" alt="Install handy Raycast Extension" /></a>
-
-Control Handy from [Raycast](https://www.raycast.com) — start/stop recording, browse transcript history, manage dictionary, switch models and languages.
-
-[Source](https://github.com/mattiacolombomc/raycast-handy) · by [@mattiacolombomc](https://github.com/mattiacolombomc)
-
 ## Architecture
 
-Handy is built as a Tauri application combining:
+Handier is built as a Tauri application combining:
 
 - **Frontend**: React + TypeScript with Tailwind CSS for the settings UI
 - **Backend**: Rust for system integration, audio processing, and ML inference
@@ -224,42 +218,42 @@ Handy is built as a Tauri application combining:
 
 ### Debug Mode
 
-Handy includes an advanced debug mode for development and troubleshooting. Access it by pressing:
+Handier includes an advanced debug mode for development and troubleshooting. Access it by pressing:
 
 - **macOS**: `Cmd+Shift+D`
 - **Windows/Linux**: `Ctrl+Shift+D`
 
 ### CLI Parameters
 
-Handy supports command-line flags for controlling a running instance and customizing startup behavior. These work on all platforms (macOS, Windows, Linux).
+Handier supports command-line flags for controlling a running instance and customizing startup behavior. These work on all platforms (macOS, Windows, Linux).
 
 **Remote control flags** (sent to an already-running instance via the single-instance plugin):
 
 ```bash
-handy --toggle-transcription    # Toggle recording on/off
-handy --toggle-post-process     # Toggle recording with post-processing on/off
-handy --cancel                  # Cancel the current operation
+handier --toggle-transcription    # Toggle recording on/off
+handier --toggle-post-process     # Toggle recording with post-processing on/off
+handier --cancel                  # Cancel the current operation
 ```
 
 **Startup flags:**
 
 ```bash
-handy --start-hidden            # Start without showing the main window
-handy --no-tray                 # Start without the system tray icon
-handy --debug                   # Enable debug mode with verbose logging
-handy --help                    # Show all available flags
+handier --start-hidden            # Start without showing the main window
+handier --no-tray                 # Start without the system tray icon
+handier --debug                   # Enable debug mode with verbose logging
+handier --help                    # Show all available flags
 ```
 
 Flags can be combined for autostart scenarios:
 
 ```bash
-handy --start-hidden --no-tray
+handier --start-hidden --no-tray
 ```
 
-> **macOS tip:** When Handy is installed as an app bundle, invoke the binary directly:
+> **macOS tip:** When Handier is installed as an app bundle, invoke the binary directly:
 >
 > ```bash
-> /Applications/Handy.app/Contents/MacOS/Handy --toggle-transcription
+> /Applications/Handier.app/Contents/MacOS/handier --toggle-transcription
 > ```
 
 ## Known Issues & Current Limitations
@@ -268,13 +262,13 @@ This project is actively being developed and has some [known issues](https://git
 
 ### Bluetooth Headset Microphones (macOS)
 
-Using a Bluetooth headset microphone on macOS may temporarily reduce playback quality or volume while recording because Bluetooth switches to bidirectional audio. Keep your headphones as the output device and select your Mac's built-in or an external microphone in Handy to avoid this.
+Using a Bluetooth headset microphone on macOS may temporarily reduce playback quality or volume while recording because Bluetooth switches to bidirectional audio. Keep your headphones as the output device and select your Mac's built-in or an external microphone in Handier to avoid this.
 
 ### fn and Globe Key Shortcuts (macOS)
 
 Shortcuts that include the `fn` (Globe) key **only work on Apple keyboards** — your Mac's built-in keyboard or an Apple external keyboard. They will never trigger on a third-party keyboard, even while it is connected to the same Mac.
 
-This is a hardware limitation rather than a Handy bug. `fn` is not part of the standard USB HID keyboard specification: Apple reports it through a vendor-specific usage that macOS honors only from Apple devices, while third-party keyboards handle their `Fn` key entirely in firmware and send nothing to the computer. There is no event for Handy to listen for.
+This is a hardware limitation rather than a Handier bug. `fn` is not part of the standard USB HID keyboard specification: Apple reports it through a vendor-specific usage that macOS honors only from Apple devices, while third-party keyboards handle their `Fn` key entirely in firmware and send nothing to the computer. There is no event for Handier to listen for.
 
 If you switch between a MacBook keyboard and an external one, pick a shortcut built from standard modifiers (`ctrl`, `option`, `shift`, `command`) or a regular key instead.
 
@@ -308,12 +302,12 @@ For reliable text input on Linux, install the appropriate tool for your display 
 - **Wayland**: Install `wtype` (preferred) or `dotool` for text input to work correctly
 - **dotool setup**: Requires adding your user to the `input` group: `sudo usermod -aG input $USER` (then log out and back in)
 
-Without these tools, Handy falls back to enigo which may have limited compatibility, especially on Wayland.
+Without these tools, Handier falls back to enigo which may have limited compatibility, especially on Wayland.
 
 **Other Notes:**
 
 - **Runtime library dependency (`libgtk-layer-shell.so.0`)**:
-  - Handy links `gtk-layer-shell` on Linux. If startup fails with `error while loading shared libraries: libgtk-layer-shell.so.0`, install the runtime package for your distro:
+  - Handier links `gtk-layer-shell` on Linux. If startup fails with `error while loading shared libraries: libgtk-layer-shell.so.0`, install the runtime package for your distro:
 
     | Distro        | Package to install    | Example command                        |
     | ------------- | --------------------- | -------------------------------------- |
@@ -323,35 +317,35 @@ Without these tools, Handy falls back to enigo which may have limited compatibil
 
   - For building from source on Ubuntu/Debian, you may also need `libgtk-layer-shell-dev`.
 
-- The recording overlay is disabled by default on Linux, because some compositors treat it as an ordinary window that can steal focus — which stops Handy pasting back into the application that triggered transcription. Compositors that support the layer-shell protocol, such as Hyprland (including Omarchy) and Sway, draw it as a non-focusable layer surface instead, so there it is safe to turn on: **Settings → Advanced → Overlay**. Elsewhere, if you enable it anyway, clipboard-based pasting might fail or land in the wrong window.
+- The recording overlay is disabled by default on Linux, because some compositors treat it as an ordinary window that can steal focus — which stops Handier pasting back into the application that triggered transcription. Compositors that support the layer-shell protocol, such as Hyprland (including Omarchy) and Sway, draw it as a non-focusable layer surface instead, so there it is safe to turn on: **Settings → Advanced → Overlay**. Elsewhere, if you enable it anyway, clipboard-based pasting might fail or land in the wrong window.
 - If you are having trouble with the app, running with the environment variable `WEBKIT_DISABLE_DMABUF_RENDERER=1` may help
-- If Handy fails to start reliably on Linux, see [Troubleshooting → Linux Startup Crashes or Instability](#linux-startup-crashes-or-instability).
-- **Global keyboard shortcuts (Wayland):** A Wayland app only receives key presses while it has focus, so Handy's own shortcut stops working as soon as the window is hidden to the tray. Configure the shortcut in your desktop environment or window manager instead, and have it run one of:
-  - `pkill -USR2 -x handy` — works for every install type, the AppImage included, and is instant because it only signals the running app. Keep the `-x`: without it the pattern also matches the `handy-llm` enhancement sidecar, and `-n` would then pick the sidecar, which the signal terminates.
-  - `handy --toggle-transcription` — for the `.deb` and `.rpm` installs. An AppImage puts no `handy` on your PATH, so use the AppImage's full path with the same flag instead, at the cost of starting a process on every press.
+- If Handier fails to start reliably on Linux, see [Troubleshooting → Linux Startup Crashes or Instability](#linux-startup-crashes-or-instability).
+- **Global keyboard shortcuts (Wayland):** A Wayland app only receives key presses while it has focus, so Handier's own shortcut stops working as soon as the window is hidden to the tray. Configure the shortcut in your desktop environment or window manager instead, and have it run one of:
+  - `pkill -USR2 -x handier` — works for every install type, the AppImage included, and is instant because it only signals the running app. Keep the `-x`: without it the pattern also matches the `handier-llm` enhancement sidecar, and `-n` would then pick the sidecar, which the signal terminates.
+  - `handier --toggle-transcription` — for the `.deb` and `.rpm` installs. An AppImage puts no `handier` on your PATH, so use the AppImage's full path with the same flag instead, at the cost of starting a process on every press.
 
   Both are toggle-only; push-to-talk needs an in-app shortcut. The experimental **Handy Keys** backend (enable **Settings → Advanced → Experimental Features**, then switch the keyboard implementation to Handy Keys) reads keyboards through `/dev/input`, beneath the compositor, so it keeps working while the window is hidden. It grabs your keyboards and re-injects keys through `/dev/uinput`, so it needs access to both — usually membership of the `input` group, which also lets any program you run read every keystroke — and upstream considers it lightly tested on Linux.
 
   **GNOME:**
   1. Open **Settings > Keyboard > Keyboard Shortcuts > Custom Shortcuts**
   2. Click the **+** button to add a new shortcut
-  3. Set the **Name** to `Toggle Handy Transcription`
-  4. Set the **Command** to `handy --toggle-transcription`
+  3. Set the **Name** to `Toggle Handier Transcription`
+  4. Set the **Command** to `handier --toggle-transcription`
   5. Click **Set Shortcut** and press your desired key combination (e.g., `Super+O`)
 
   **KDE Plasma:**
   1. Open **System Settings > Shortcuts > Custom Shortcuts**
   2. Click **Edit > New > Global Shortcut > Command/URL**
-  3. Name it `Toggle Handy Transcription`
+  3. Name it `Toggle Handier Transcription`
   4. In the **Trigger** tab, set your desired key combination
-  5. In the **Action** tab, set the command to `handy --toggle-transcription`
+  5. In the **Action** tab, set the command to `handier --toggle-transcription`
 
   **Sway / i3:**
 
   Add to your config file (`~/.config/sway/config` or `~/.config/i3/config`):
 
   ```ini
-  bindsym $mod+o exec handy --toggle-transcription
+  bindsym $mod+o exec handier --toggle-transcription
   ```
 
   **Hyprland:**
@@ -359,32 +353,33 @@ Without these tools, Handy falls back to enigo which may have limited compatibil
   With a classic `~/.config/hypr/hyprland.conf`:
 
   ```ini
-  bind = $mainMod, O, exec, pkill -USR2 -x handy
+  bind = $mainMod, O, exec, pkill -USR2 -x handier
   ```
 
-  **Omarchy**, which configures Hyprland in Lua, takes personal bindings in `~/.config/hypr/bindings.lua`. Check `omarchy menu keybindings --print` for a free combination first:
+  **Omarchy**, which configures Hyprland in Lua, takes personal bindings in `~/.config/hypr/bindings.lua`. `CTRL + SPACE` is free in Omarchy's defaults and matches Handier's own default shortcut. [Omarchy](#omarchy) below covers the whole setup, including starting at login and push-to-talk:
 
   ```lua
-  o.bind("SUPER + O", "Handier dictation", "pkill -USR2 -x handy")
+  o.bind("CTRL + SPACE", "Handier: toggle dictation", "pkill -USR2 -x handier")
   ```
 
-- You can also trigger Handy externally via Unix signals or the CLI flags, which lets Wayland window managers or other hotkey daemons keep ownership of keybindings:
+- **Launch on startup with the AppImage:** leave Handier's own switch off. It records the path of the running program, which for an AppImage is a temporary mount that is gone once it exits, so the entry breaks at the next login. Start the AppImage from your session's autostart instead — [Omarchy](#omarchy) shows an example.
+- You can also trigger Handier externally via Unix signals or the CLI flags, which lets Wayland window managers or other hotkey daemons keep ownership of keybindings:
 
-  | Action                                    | Trigger                                                  |
-  | ----------------------------------------- | -------------------------------------------------------- |
-  | Toggle transcription                      | `pkill -USR2 -x handy` or `handy --toggle-transcription` |
-  | Toggle transcription with post-processing | `handy --toggle-post-process`                            |
+  | Action                                    | Trigger                                                      |
+  | ----------------------------------------- | ------------------------------------------------------------ |
+  | Toggle transcription                      | `pkill -USR2 -x handier` or `handier --toggle-transcription` |
+  | Toggle transcription with post-processing | `handier --toggle-post-process`                              |
 
   Example Sway config:
 
   ```ini
-  bindsym $mod+o exec pkill -USR2 -x handy
-  bindsym $mod+p exec handy --toggle-post-process
+  bindsym $mod+o exec pkill -USR2 -x handier
+  bindsym $mod+p exec handier --toggle-post-process
   ```
 
   `pkill` here simply delivers the signal—it does not terminate the process.
 
-  > **Behavior change:** older releases also accepted `SIGUSR1` for toggling transcription with post-processing. WebKitGTK — the webview engine embedded in Handy on Linux — uses SIGUSR1 internally to coordinate JavaScript garbage collection, so listening for it caused phantom recordings and interrupted dictations every few minutes ([#1660](https://github.com/cjpais/Handy/issues/1660)). Handy no longer listens for SIGUSR1 on Linux; the post-processing toggle is still available via `handy --toggle-post-process`. **Remove any `pkill -USR1` bindings**: the signal is now delivered straight to WebKit's internal handler and can crash the app.
+  > **Behavior change:** older releases also accepted `SIGUSR1` for toggling transcription with post-processing. WebKitGTK — the webview engine embedded in Handier on Linux — uses SIGUSR1 internally to coordinate JavaScript garbage collection, so listening for it caused phantom recordings and interrupted dictations every few minutes ([#1660](https://github.com/cjpais/Handy/issues/1660)). Handier no longer listens for SIGUSR1 on Linux; the post-processing toggle is still available via `handier --toggle-post-process`. **Remove any `pkill -USR1` bindings**: the signal is now delivered straight to WebKit's internal handler and can crash the app.
 
 **Overlay & Pasting Issues (Linux):**
 
@@ -392,6 +387,45 @@ Without these tools, Handy falls back to enigo which may have limited compatibil
 - **Solution:** Open **Settings > Advanced** and set **"Overlay Position"** to **"None"** to disable the overlay
 - Enable **"Audio Feedback"** (also in Advanced) if you still want audible confirmation of recording state
 - Users who upgrade from older versions or import settings from other platforms may need to manually apply this change
+
+### Omarchy
+
+[Omarchy](https://omarchy.org) runs Hyprland on Wayland and already ships `wtype` and `wl-clipboard`, so pasting works out of the box. Three things need setting up by hand, because on Wayland an app can neither register a global shortcut nor reliably start itself at login.
+
+**1. Give the AppImage a fixed home.** Download `Handier_<version>_amd64.AppImage`, then:
+
+```bash
+mkdir -p ~/Applications
+mv ~/Downloads/Handier_*_amd64.AppImage ~/Applications/Handier.AppImage
+chmod +x ~/Applications/Handier.AppImage
+```
+
+The fixed name matters: the built-in updater replaces the file where it is, so the path in your bindings and autostart never goes stale. If it will not start at all, `sudo pacman -S fuse2` is the usual fix.
+
+**2. Start it at login.** Leave Handier's own **Launch on startup** switch off — for an AppImage it records a temporary mount path. Add this to `~/.config/hypr/autostart.lua` instead:
+
+```lua
+o.launch_on_start(os.getenv("HOME") .. "/Applications/Handier.AppImage --start-hidden")
+```
+
+**3. Bind a key.** Add this to `~/.config/hypr/bindings.lua`:
+
+```lua
+o.bind("CTRL + SPACE", "Handier: toggle dictation", "pkill -USR2 -x handier")
+```
+
+`CTRL + SPACE` is free in Omarchy's defaults; `omarchy menu keybindings --print` lists what is taken. Hyprland reloads its config when you save; if a binding does not take, run `hyprctl reload`. Tap once to start recording and again to stop and paste — whether Handier's window is open, hidden to the tray, or on another workspace.
+
+For push-to-talk, bind the press and the release of one key to the same toggle, the way Omarchy's own dictation bindings do. It relies on every press arriving with its release, and has not been tested on Hyprland yet:
+
+```lua
+o.bind("F10", "Handier: push-to-talk", "pkill -USR2 -x handier")
+o.bind("F10", nil, "pkill -USR2 -x handier", { release = true })
+```
+
+**4. Turn on the recording pill.** It is off by default on Linux. Hyprland draws it as a layer surface that cannot take focus, so it is safe here: **Settings → Advanced → Overlay → Live**.
+
+**Check it.** With the window hidden, run `pkill -USR2 -x handier` in a terminal. Recording should start, and running it again should stop and paste. If nothing happens, **Settings → About** shows where the log file is.
 
 ### Platform Support
 
@@ -401,7 +435,7 @@ Without these tools, Handy falls back to enigo which may have limited compatibil
 
 ### System Requirements/Recommendations
 
-The following are recommendations for running Handy on your own machine. If you don't meet the system requirements, the performance of the application may be degraded. We are working on improving the performance across all kinds of computers and hardware.
+The following are recommendations for running Handier on your own machine. If you don't meet the system requirements, the performance of the application may be degraded. We are working on improving the performance across all kinds of computers and hardware.
 
 **For Whisper Models:**
 
@@ -417,60 +451,30 @@ The following are recommendations for running Handy on your own machine. If you 
 - **Performance**: ~5x real-time speed on mid-range hardware (tested on i5)
 - **Automatic language detection** - no manual language selection required
 
-## Roadmap & Active Development
-
-We're actively working on several features and improvements. Contributions and feedback are welcome!
-
-### In Progress
-
-**Debug Logging:**
-
-- Adding debug logging to a file to help diagnose issues
-
-**macOS Keyboard Improvements:**
-
-- Support for Globe key as transcription trigger
-- A rewrite of global shortcut handling for MacOS, and potentially other OS's too.
-
-**Opt-in Analytics:**
-
-- Collect anonymous usage data to help improve Handy
-- Privacy-first approach with clear opt-in
-
-**Settings Refactoring:**
-
-- Cleanup and refactor settings system which is becoming bloated and messy
-- Implement better abstractions for settings management
-
-**Tauri Commands Cleanup:**
-
-- Abstract and organize Tauri command patterns
-- Investigate tauri-specta for improved type safety and organization
-
 ## Verify Release Signatures
 
 Handier release artifacts are signed with Tauri's updater signature format, using the fork's own key (not upstream's). The public key is stored in [`src-tauri/tauri.conf.json`](src-tauri/tauri.conf.json) under `plugins.updater.pubkey`.
 
-To verify a release manually, set `ARTIFACT` to the filename you downloaded, save the `pubkey` value from `src-tauri/tauri.conf.json` to `handy.pub.b64`, then decode the public key and matching `.sig` file from base64 and verify the artifact with `minisign`:
+To verify a release manually, set `ARTIFACT` to the filename you downloaded, save the `pubkey` value from `src-tauri/tauri.conf.json` to `handier.pub.b64`, then decode the public key and matching `.sig` file from base64 and verify the artifact with `minisign`:
 
 ```bash
 # Replace with the file you downloaded
-ARTIFACT="Handier_0.9.6_x64-setup.exe"
+ARTIFACT="Handier_0.10.1_x64-setup.exe"
 
 python3 - "$ARTIFACT" <<'PY'
 import base64, pathlib, sys
 
 artifact = sys.argv[1]
 
-pub = pathlib.Path("handy.pub.b64").read_text().strip()
-pathlib.Path("handy.pub").write_bytes(base64.b64decode(pub))
+pub = pathlib.Path("handier.pub.b64").read_text().strip()
+pathlib.Path("handier.pub").write_bytes(base64.b64decode(pub))
 
 sig = pathlib.Path(f"{artifact}.sig").read_text().strip()
 pathlib.Path(f"{artifact}.minisig").write_bytes(base64.b64decode(sig))
 PY
 
 minisign -Vm "$ARTIFACT" \
-  -p handy.pub \
+  -p handier.pub \
   -x "$ARTIFACT.minisig"
 ```
 
@@ -486,11 +490,11 @@ Do not use `gpg` for these `.sig` files.
 
 ### Manual Model Installation (For Proxy Users or Network Restrictions)
 
-If you're behind a proxy, firewall, or in a restricted network environment where Handy cannot download models automatically, you can manually download and install them. The URLs are publicly accessible from any browser.
+If you're behind a proxy, firewall, or in a restricted network environment where Handier cannot download models automatically, you can manually download and install them. The URLs are publicly accessible from any browser.
 
 #### Step 1: Find Your App Data Directory
 
-1. Open Handy settings
+1. Open Handier settings
 2. Navigate to the **About** section
 3. Copy the "App Data Directory" path shown there, or use the shortcuts:
    - **macOS**: `Cmd+Shift+D` to open debug menu
@@ -550,7 +554,7 @@ Simply place the `.bin` file directly into the `models` directory:
 
 **For GGUF Models (.gguf files):**
 
-Place the `.gguf` file directly into the `models` directory, exactly like the Whisper `.bin` files above. Handy also picks up models already present in the shared Hugging Face cache (`~/.cache/huggingface/hub`), so a copy downloaded by another tool works without being moved.
+Place the `.gguf` file directly into the `models` directory, exactly like the Whisper `.bin` files above. Handier also picks up models already present in the shared Hugging Face cache (`~/.cache/huggingface/hub`), so a copy downloaded by another tool works without being moved.
 
 **For Parakeet Models (.tar.gz archives):**
 
@@ -576,24 +580,24 @@ Final structure should look like:
 
 - For Parakeet models, the extracted directory name **must** match exactly as shown above
 - Do not rename the `.bin` or `.gguf` files—use the exact filenames from the download URLs
-- After placing the files, restart Handy to detect the new models
+- After placing the files, restart Handier to detect the new models
 
 #### Step 5: Verify Installation
 
-1. Restart Handy
+1. Restart Handier
 2. Open Settings → Models
 3. Your manually installed models should now appear as "Downloaded"
 4. Select the model you want to use and test transcription
 
 ### Custom Whisper Models
 
-Handy can auto-discover custom Whisper GGML models placed in the `models` directory. This is useful for users who want to use fine-tuned or community models not included in the default model list.
+Handier can auto-discover custom Whisper GGML models placed in the `models` directory. This is useful for users who want to use fine-tuned or community models not included in the default model list.
 
 **How to use:**
 
 1. Obtain a Whisper model in GGML `.bin` format (e.g., from [Hugging Face](https://huggingface.co/models?search=whisper%20ggml))
 2. Place the `.bin` file in your `models` directory (see paths above)
-3. Restart Handy to discover the new model
+3. Restart Handier to discover the new model
 4. The model will appear in the "Custom Models" section of the Models settings page
 
 **Important:**
@@ -604,11 +608,11 @@ Handy can auto-discover custom Whisper GGML models placed in the `models` direct
 
 ### Linux Startup Crashes or Instability
 
-If Handy fails to start reliably on Linux — for example, it crashes shortly after launch, never shows its window, or reports a Wayland protocol error — try the steps below in order.
+If Handier fails to start reliably on Linux — for example, it crashes shortly after launch, never shows its window, or reports a Wayland protocol error — try the steps below in order.
 
 **1. Install (or reinstall) `gtk-layer-shell`**
 
-Handy uses `gtk-layer-shell` for its recording overlay and links against it at runtime. A missing or broken installation is the most common cause of startup failures and can manifest as a crash or a hang well before any window is shown. Make sure the runtime package is installed for your distro:
+Handier uses `gtk-layer-shell` for its recording overlay and links against it at runtime. A missing or broken installation is the most common cause of startup failures and can manifest as a crash or a hang well before any window is shown. Make sure the runtime package is installed for your distro:
 
 | Distro        | Package to install    | Example command                        |
 | ------------- | --------------------- | -------------------------------------- |
@@ -623,7 +627,7 @@ If it is already installed and you still see startup problems, try reinstalling 
 If installing the library does not help, you can skip `gtk-layer-shell` initialization entirely as a workaround. On some compositors (notably KDE Plasma under Wayland) it has been reported to interact poorly with the recording overlay. With this variable set, the overlay falls back to a regular always-on-top window:
 
 ```bash
-HANDY_NO_GTK_LAYER_SHELL=1 handy
+HANDY_NO_GTK_LAYER_SHELL=1 handier
 ```
 
 **3. Disable WebKit DMA-BUF renderer (`WEBKIT_DISABLE_DMABUF_RENDERER`)**
@@ -631,57 +635,28 @@ HANDY_NO_GTK_LAYER_SHELL=1 handy
 On some GPU/driver combinations the WebKitGTK DMA-BUF renderer can cause the window to fail to render or to crash. Try:
 
 ```bash
-WEBKIT_DISABLE_DMABUF_RENDERER=1 handy
+WEBKIT_DISABLE_DMABUF_RENDERER=1 handier
 ```
 
 **Making a workaround permanent**
 
-Once you've found a flag that helps, export it from your shell profile (`~/.bashrc`, `~/.zshenv`, …) or from the desktop autostart entry that launches Handy. If you launch Handy from a `.desktop` file, you can prefix the `Exec=` line, e.g.:
+Once you've found a flag that helps, export it from your shell profile (`~/.bashrc`, `~/.zshenv`, …) or from the desktop autostart entry that launches Handier. If you launch Handier from a `.desktop` file, you can prefix the `Exec=` line, e.g.:
 
 ```ini
-Exec=env HANDY_NO_GTK_LAYER_SHELL=1 handy
+Exec=env HANDY_NO_GTK_LAYER_SHELL=1 handier
 ```
 
-If a workaround helps you, please [open an issue](https://github.com/cjpais/Handy/issues) describing your distro, desktop environment, and session type — that information helps us narrow down the underlying bug.
-
-### Handy Starts or Stops Recording on Its Own (Linux)
-
-Handy 0.9.4 and earlier listened for `SIGUSR1` as a remote-control trigger. WebKitGTK — the webview engine embedded in Handy on Linux — uses that same signal internally to coordinate JavaScript garbage collection, so GC cycles were misread as hotkey presses: recordings started on their own, or real dictations were cut off mid-sentence (typically ~2 minutes in). See [#1660](https://github.com/cjpais/Handy/issues/1660).
-
-Update to a newer release, and replace any `pkill -USR1 -n handy` keybindings with `handy --toggle-post-process`.
+If a workaround helps you, please [open an issue](https://github.com/MagicNoThief/Handier-desktop/issues) describing your distro, desktop environment, and session type — that information helps us narrow down the underlying bug.
 
 ### How to Contribute
 
-1. **Check existing issues** at [github.com/cjpais/Handy/issues](https://github.com/cjpais/Handy/issues)
-2. **Fork the repository** and create a feature branch
-3. **Test thoroughly** on your target platform
-4. **Submit a pull request** with clear description of changes
-5. **Join the discussion** - reach out at [contact@handy.computer](mailto:contact@handy.computer)
+- **Issues and ideas for Handier** go to [MagicNoThief/Handier-desktop](https://github.com/MagicNoThief/Handier-desktop/issues).
+- **Anything in the transcription path** — recording, models, shortcuts, pasting — is upstream's code. Fixes there belong in [cjpais/Handy](https://github.com/cjpais/Handy), and reach Handier from there.
 
-The goal is to create both a useful tool and a foundation for others to build upon—a well-patterned, simple codebase that serves the community.
+## Upstream
 
-## Sponsors
-
-<div align="center">
-  We're grateful for the support of our sponsors who help make Handy possible:
-  <br><br>
-  <a href="https://wordcab.com">
-    <img src="sponsor-images/wordcab.png" alt="Wordcab" width="120" height="120">
-  </a>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <a href="https://github.com/epicenter-so/epicenter">
-    <img src="sponsor-images/epicenter.png" alt="Epicenter" width="120" height="120">
-  </a>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <a href="https://boltai.com?utm_source=handy">
-    <img src="sponsor-images/boltai.jpg" alt="Bolt AI" width="120" height="120">
-  </a>
-</div>
-
-## Related Projects
-
-- **[Handy CLI](https://github.com/cjpais/handy-cli)** - The original Python command-line version
-- **[handy.computer](https://handy.computer)** - Project website with demos and documentation
+- **[Handy](https://github.com/cjpais/Handy)** by [@cjpais](https://github.com/cjpais) — the app Handier is built on
+- **[handy.computer](https://handy.computer)** — Handy's website
 
 ## License
 
@@ -689,10 +664,12 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 Handy is open-source software, but the Handy name, logo, icon, and brand assets are not open-source. Unofficial forks, rewrites, and redistributions must use their own branding and must not imply endorsement or affiliation.
 
+Handier therefore uses its own name, icon and wordmark, and is not affiliated with or endorsed by the Handy project.
+
 ## Acknowledgments
 
 - **Whisper** by OpenAI for the speech recognition model
 - **ggml and transcribe.cpp** for amazing cross-platform speech-to-text inference/acceleration
 - **Silero** for great lightweight VAD
 - **Tauri** team for the excellent Rust-based app framework
-- **Community contributors** helping make Handy better
+- **Handy's contributors**, whose work Handier is built on
