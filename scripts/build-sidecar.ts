@@ -1,6 +1,6 @@
 #!/usr/bin/env bun
 /**
- * Build the `handy-llm` inference sidecar and stage it for Tauri bundling.
+ * Build the `handier-llm` inference sidecar and stage it for Tauri bundling.
  *
  * Tauri's `externalBin` expects `src-tauri/binaries/<name>-<target-triple>`,
  * so this builds the crate and copies the result under that name.
@@ -254,7 +254,9 @@ function builtSubdir(): string[] {
 const env = buildEnv();
 const targetDir = env.CARGO_TARGET_DIR ?? join(crateDir, "target");
 
-console.log(`building handy-llm for ${target}${cpuOnly ? " (CPU only)" : ""}`);
+console.log(
+  `building handier-llm for ${target}${cpuOnly ? " (CPU only)" : ""}`,
+);
 if (env.CARGO_TARGET_DIR) {
   console.log(`  target dir: ${env.CARGO_TARGET_DIR}`);
 }
@@ -289,7 +291,7 @@ try {
     );
   }
 
-  console.error("\nhandy-llm build failed.");
+  console.error("\nhandier-llm build failed.");
   if (problems.length > 0) {
     console.error("Likely cause:\n" + problems.join("\n"));
   } else {
@@ -305,14 +307,14 @@ try {
   process.exit(1);
 }
 
-const built = join(targetDir, ...builtSubdir(), `handy-llm${exeSuffix}`);
+const built = join(targetDir, ...builtSubdir(), `handier-llm${exeSuffix}`);
 if (!existsSync(built)) {
   console.error(`expected binary not found at ${built}`);
   process.exit(1);
 }
 
 mkdirSync(binariesDir, { recursive: true });
-const staged = join(binariesDir, `handy-llm-${target}${exeSuffix}`);
+const staged = join(binariesDir, `handier-llm-${target}${exeSuffix}`);
 rmSync(staged, { force: true });
 copyFileSync(built, staged);
 

@@ -1,4 +1,4 @@
-//! Client for the `handy-llm` inference sidecar.
+//! Client for the `handier-llm` inference sidecar.
 //!
 //! Owns the child process and speaks the line-delimited JSON protocol described
 //! in `crates/handy-llm/README.md`. One request is in flight at a time — a
@@ -29,7 +29,7 @@ use super::{Backend, GenParams, PromptStyle};
 /// wrong is killing a healthy process mid-dictation.
 const REPLY_TIMEOUT: Duration = Duration::from_secs(120);
 
-/// A running `handy-llm` process.
+/// A running `handier-llm` process.
 ///
 /// Replies arrive over a channel rather than being read inline, so a wedged
 /// child can be given up on. A blocking `read_line` on the pipe would hang the
@@ -72,15 +72,15 @@ impl SidecarClient {
     /// build leaves it, so `bun run tauri dev` works without a packaging step.
     pub fn find_binary(resource_dir: Option<&Path>) -> Option<PathBuf> {
         let exe_name = if cfg!(windows) {
-            "handy-llm.exe"
+            "handier-llm.exe"
         } else {
-            "handy-llm"
+            "handier-llm"
         };
 
         // Tauri strips the target triple when it bundles an `externalBin`, but
         // the staging directory keeps it, so both spellings are searched.
         let staged_name = format!(
-            "handy-llm-{}{}",
+            "handier-llm-{}{}",
             env!("HANDY_TARGET_TRIPLE"),
             Self::exe_suffix()
         );
@@ -194,7 +194,7 @@ impl SidecarClient {
         if let Some(stderr) = child.stderr.take() {
             std::thread::spawn(move || {
                 for line in BufReader::new(stderr).lines().map_while(Result::ok) {
-                    debug!("handy-llm: {line}");
+                    debug!("handier-llm: {line}");
                 }
             });
         }
@@ -438,9 +438,9 @@ mod tests {
         let dir = std::env::temp_dir().join("handy-flow-sidecar-probe");
         std::fs::create_dir_all(&dir).expect("temp dir");
         let name = if cfg!(windows) {
-            "handy-llm.exe"
+            "handier-llm.exe"
         } else {
-            "handy-llm"
+            "handier-llm"
         };
         let planted = dir.join(name);
         std::fs::write(&planted, b"not a real binary").expect("plant a file");
@@ -454,11 +454,11 @@ mod tests {
 
 /// Tests that drive the real sidecar binary.
 ///
-/// Ignored by default because they need `handy-llm` built and a GGUF on disk.
+/// Ignored by default because they need `handier-llm` built and a GGUF on disk.
 /// Run with the paths supplied:
 ///
 /// ```text
-/// HANDY_LLM_BIN=D:/hl/release/handy-llm.exe \
+/// HANDY_LLM_BIN=D:/hl/release/handier-llm.exe \
 /// HANDY_LLM_MODEL=D:/dev/handy-models/Qwen3-0.6B-Q4_K_M.gguf \
 /// cargo test --lib sidecar::live -- --ignored --nocapture
 /// ```

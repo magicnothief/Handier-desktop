@@ -127,8 +127,8 @@ src-tauri/target/release/bundle/
   nsis/Handier_0.10.0_x64-setup.exe       28 MB
 ```
 
-The MSI contains 35 files including `handy.exe`, **`handy-llm.exe`** (the
-enhancement sidecar) and the ggml Vulkan/CPU runtime DLLs. If `handy-llm.exe` is
+The MSI contains 35 files including `handier.exe`, **`handier-llm.exe`** (the
+enhancement sidecar) and the ggml Vulkan/CPU runtime DLLs. If `handier-llm.exe` is
 missing from a build, the enhancement layer will be absent at runtime and the app
 will report the sidecar as unavailable — check that `bun run build:sidecar` ran
 before `tauri build`.

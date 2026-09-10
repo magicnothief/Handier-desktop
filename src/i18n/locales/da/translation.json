@@ -108,7 +108,7 @@
     },
     "permissions": {
       "title": "Tilladelser påkrævet",
-      "description": "Handy har brug for et par tilladelser for at fungere korrekt.",
+      "description": "Handier har brug for et par tilladelser for at fungere korrekt.",
       "microphone": {
         "title": "Mikrofonadgang",
         "description": "Påkrævet for at høre din stemme til transskription."
@@ -168,7 +168,7 @@
     "general": {
       "title": "Generelt",
       "shortcut": {
-        "title": "Handy-genveje",
+        "title": "Handier-genveje",
         "description": "Konfigurer tastaturgenveje til at udløse tale-til-tekst-optagelse",
         "loading": "Indlæser genveje...",
         "none": "Ingen genveje konfigureret",
@@ -232,7 +232,7 @@
       },
       "rescan": {
         "label": "Søg igen",
-        "tooltip": "Søg igen efter modeller, der er tilføjet til modelmappen eller Hugging Face-cachen uden for Handy"
+        "tooltip": "Søg igen efter modeller, der er tilføjet til modelmappen eller Hugging Face-cachen uden for Handier"
       },
       "noModelsMatch": "Ingen modeller matcher dette filter.",
       "enhance": {
@@ -247,7 +247,7 @@
         "quantTooltip": "Kvantisering af denne fil",
         "local": {
           "title": "Din egen model",
-          "description": "Peg Handy på en GGUF-fil, du selv har trænet. Den kører på denne computer som enhver anden forbedringsmodel.",
+          "description": "Peg Handier på en GGUF-fil, du selv har trænet. Den kører på denne computer som enhver anden forbedringsmodel.",
           "badge": "Din model",
           "pick": "Vælg en GGUF-fil…",
           "replace": "Vælg en anden fil…",
@@ -261,7 +261,7 @@
           "styleInstructed": "Alsidig model",
           "styleInstructedHint": "Sender Handys redigeringsinstruktioner. Korrekt, hvis det er en almindelig model, du selv har hentet.",
           "styleAlpaca": "Finjusteret fra en basismodel",
-          "styleAlpacaHint": "Sender den Alpaca-instruktion, Handy træner med. Korrekt, hvis du har finjusteret et basis-checkpoint, som ikke har sin egen chatskabelon."
+          "styleAlpacaHint": "Sender den Alpaca-instruktion, Handier træner med. Korrekt, hvis du har finjusteret et basis-checkpoint, som ikke har sin egen chatskabelon."
         }
       }
     },
@@ -329,11 +329,11 @@
       },
       "autostart": {
         "label": "Start ved opstart",
-        "description": "Start Handy automatisk, når du logger ind på din computer."
+        "description": "Start Handier automatisk, når du logger ind på din computer."
       },
       "showTrayIcon": {
         "label": "Vis proceslinjeikon",
-        "description": "Vis Handy-ikonet i meddelelsesområdet."
+        "description": "Vis Handier-ikonet i meddelelsesområdet."
       },
       "overlay": {
         "style": {
@@ -575,7 +575,7 @@
         "firstRunHint": "Første kørsel indlæser modellen og kan tage et øjeblik.",
         "needsModel": "Download først en forbedringsmodel.",
         "before": "Du sagde",
-        "after": "Handy skriver",
+        "after": "Handier skriver",
         "legendCut": "fjernet",
         "legendAdded": "tilføjet"
       },
@@ -621,7 +621,7 @@
       },
       "updateChecks": {
         "label": "Tjek for opdateringer",
-        "description": "Tjek automatisk for nye versioner af Handy",
+        "description": "Tjek automatisk for nye versioner af Handier",
         "lockedDescription": "Deaktiveret af systemkonfiguration (HANDY_DISABLE_UPDATER)"
       },
       "whatsNewPreview": {
@@ -706,7 +706,7 @@
       },
       "keyboardDiagnostic": {
         "title": "Tastaturdiagnostik",
-        "description": "Kontrollerer, om tastaturhændelser når frem til Handy. Kun antallet af hændelser registreres — aldrig hvilke taster du trykker på.",
+        "description": "Kontrollerer, om tastaturhændelser når frem til Handier. Kun antallet af hændelser registreres — aldrig hvilke taster du trykker på.",
         "run": "Kør 10 s diagnostik",
         "running": "Lytter… tryk på din genvej et par gange (f.eks. Option+Space)",
         "secureInputLabel": "Secure Input",
@@ -720,7 +720,7 @@
         "mouse": "Mus",
         "verdictBlocked": "Secure Input blokerer tastehændelser — genveje med en almindelig tast kan ikke fungere, før det er løst.",
         "verdictSuspicious": "Der kom modifikatorhændelser, men ingen tastehændelser — noget undertrykker taster, selvom Secure Input rapporteres som deaktiveret. Rapportér det gerne på GitHub.",
-        "verdictOk": "Tastehændelser når frem til Handy som normalt.",
+        "verdictOk": "Tastehændelser når frem til Handier som normalt.",
         "verdictNoEvents": "Ingen hændelser registreret — trykkede du på nogen taster under testen?",
         "failed": "Diagnostik mislykkedes: {{error}}"
       }
@@ -729,15 +729,15 @@
       "title": "Om",
       "version": {
         "title": "Version",
-        "description": "Nuværende version af Handy"
+        "description": "Nuværende version af Handier"
       },
       "whatsNewUpdates": {
         "label": "Vis nyheder",
-        "description": "Vis udgivelsesnoter, efter Handy opdateres"
+        "description": "Vis udgivelsesnoter, efter Handier opdateres"
       },
       "appDataDirectory": {
         "title": "Appdatamappe",
-        "description": "Placering, hvor Handy gemmer sine data"
+        "description": "Placering, hvor Handier gemmer sine data"
       },
       "sourceCode": {
         "title": "Kildekode",
@@ -775,7 +775,7 @@
     "portableUpdateBrowseButton": "Åbn GitHub Releases"
   },
   "whatsNew": {
-    "title": "Nyt i Handy v{{version}}"
+    "title": "Nyt i Handier v{{version}}"
   },
   "common": {
     "loading": "Indlæser...",
@@ -787,7 +787,7 @@
     "noOptionsFound": "Ingen muligheder fundet"
   },
   "accessibility": {
-    "permissionsDescription": "Handy har brug for tilgængelighedstilladelser for at skrive den transskriberede tekst.",
+    "permissionsDescription": "Handier har brug for tilgængelighedstilladelser for at skrive den transskriberede tekst.",
     "openSettings": "Åbn systemindstillinger"
   },
   "errors": {
@@ -810,11 +810,11 @@
   },
   "appLanguage": {
     "title": "Applikationssprog",
-    "description": "Skift sproget for Handy-grænsefladen"
+    "description": "Skift sproget for Handier-grænsefladen"
   },
   "theme": {
     "title": "Applikationstema",
-    "description": "Vælg om Handy skal følge dit systemtema eller forblive lyst eller mørkt",
+    "description": "Vælg om Handier skal følge dit systemtema eller forblive lyst eller mørkt",
     "options": {
       "system": "System",
       "light": "Lys",

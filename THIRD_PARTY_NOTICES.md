@@ -16,7 +16,7 @@ redistribution.
 
 ## Bundled in the installer
 
-### The enhancement sidecar (`handy-llm`)
+### The enhancement sidecar (`handier-llm`)
 
 A separate executable shipped alongside the app. It statically links:
 

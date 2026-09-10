@@ -108,7 +108,7 @@
     },
     "permissions": {
       "title": "İzinler Gerekli",
-      "description": "Handy'nin düzgün çalışabilmesi için birkaç izne ihtiyacı var.",
+      "description": "Handier'nin düzgün çalışabilmesi için birkaç izne ihtiyacı var.",
       "microphone": {
         "title": "Mikrofon Erişimi",
         "description": "Sesinizi transkripsiyon için alabilmek için gereklidir."
@@ -182,7 +182,7 @@
       "searchPlaceholder": "Modelleri ada göre ara…",
       "rescan": {
         "label": "Yeniden Tara",
-        "tooltip": "Handy dışında modeller klasörüne veya Hugging Face önbelleğine eklenen modelleri yeniden tara"
+        "tooltip": "Handier dışında modeller klasörüne veya Hugging Face önbelleğine eklenen modelleri yeniden tara"
       },
       "enhance": {
         "title": "İyileştirme modelleri",
@@ -196,7 +196,7 @@
         "quantTooltip": "Bu dosyanın niceleme düzeyi",
         "local": {
           "title": "Kendi modeliniz",
-          "description": "Handy'ye kendi eğittiğiniz bir GGUF dosyasını gösterin. Diğer iyileştirme modelleri gibi bu bilgisayarda çalışır.",
+          "description": "Handier'ye kendi eğittiğiniz bir GGUF dosyasını gösterin. Diğer iyileştirme modelleri gibi bu bilgisayarda çalışır.",
           "badge": "Sizin modeliniz",
           "pick": "GGUF dosyası seçin…",
           "replace": "Başka bir dosya seçin…",
@@ -208,16 +208,16 @@
           "styleTuned": "Düzenleme için ince ayarlı",
           "styleTunedHint": "Hiçbir yönerge göndermez. Bu modeli dikte metinlerini temizlemek için eğittiyseniz doğru seçim budur.",
           "styleInstructed": "Genel amaçlı model",
-          "styleInstructedHint": "Handy'nin düzenleme yönergelerini gönderir. Bu, kendi indirdiğiniz standart bir modelse doğru seçim budur.",
+          "styleInstructedHint": "Handier'nin düzenleme yönergelerini gönderir. Bu, kendi indirdiğiniz standart bir modelse doğru seçim budur.",
           "styleAlpaca": "Temel modelden ince ayarlı",
-          "styleAlpacaHint": "Handy'nin eğitimde kullandığı Alpaca yönergesini gönderir. Kendi sohbet şablonu olmayan bir temel modeli ince ayarladıysanız doğru seçim budur."
+          "styleAlpacaHint": "Handier'nin eğitimde kullandığı Alpaca yönergesini gönderir. Kendi sohbet şablonu olmayan bir temel modeli ince ayarladıysanız doğru seçim budur."
         }
       }
     },
     "general": {
       "title": "Genel",
       "shortcut": {
-        "title": "Handy Kısayolları",
+        "title": "Handier Kısayolları",
         "description": "Sesle yazma kaydını başlatmak için klavye kısayollarını yapılandırın",
         "loading": "Kısayollar yükleniyor...",
         "none": "Kısayol yapılandırılmadı",
@@ -329,11 +329,11 @@
       },
       "autostart": {
         "label": "Başlangıçta Çalıştır",
-        "description": "Bilgisayara giriş yaptığınızda Handy otomatik olarak başlatılır."
+        "description": "Bilgisayara giriş yaptığınızda Handier otomatik olarak başlatılır."
       },
       "showTrayIcon": {
         "label": "Tepsi Simgesini Göster",
-        "description": "Handy simgesini sistem tepsisinde göster."
+        "description": "Handier simgesini sistem tepsisinde göster."
       },
       "overlay": {
         "style": {
@@ -575,7 +575,7 @@
         "firstRunHint": "İlk çalıştırma modeli yükler ve biraz sürebilir.",
         "needsModel": "Önce bir iyileştirme modeli indirin.",
         "before": "Siz dediniz",
-        "after": "Handy şöyle yazıyor",
+        "after": "Handier şöyle yazıyor",
         "legendCut": "çıkarıldı",
         "legendAdded": "eklendi"
       },
@@ -621,7 +621,7 @@
       },
       "updateChecks": {
         "label": "Güncellemeleri Kontrol Et",
-        "description": "Handy için yeni sürümleri otomatik olarak kontrol eder",
+        "description": "Handier için yeni sürümleri otomatik olarak kontrol eder",
         "lockedDescription": "Sistem yapılandırması tarafından devre dışı bırakıldı (HANDY_DISABLE_UPDATER)"
       },
       "soundTheme": {
@@ -699,7 +699,7 @@
       },
       "keyboardDiagnostic": {
         "title": "Klavye Tanılaması",
-        "description": "Klavye olaylarının Handy'ye ulaşıp ulaşmadığını denetler. Yalnızca olay sayıları kaydedilir — hangi tuşlara bastığınız asla kaydedilmez.",
+        "description": "Klavye olaylarının Handier'ye ulaşıp ulaşmadığını denetler. Yalnızca olay sayıları kaydedilir — hangi tuşlara bastığınız asla kaydedilmez.",
         "run": "10 sn'lik tanılamayı çalıştır",
         "running": "Dinleniyor… kısayolunuza birkaç kez basın (ör. Option+Space)",
         "secureInputLabel": "Secure Input",
@@ -713,7 +713,7 @@
         "mouse": "Fare",
         "verdictBlocked": "Secure Input tuş olaylarını engelliyor — normal tuş içeren kısayollar bu sorun çözülene kadar çalışamaz.",
         "verdictSuspicious": "Değiştirici olayları geldi ancak hiç tuş olayı gelmedi — Secure Input devre dışı görünmesine rağmen bir şey tuşları bastırıyor. Lütfen bunu GitHub'da bildirin.",
-        "verdictOk": "Tuş olayları Handy'ye normal şekilde ulaşıyor.",
+        "verdictOk": "Tuş olayları Handier'ye normal şekilde ulaşıyor.",
         "verdictNoEvents": "Hiç olay yakalanmadı — test sırasında herhangi bir tuşa bastınız mı?",
         "failed": "Tanılama başarısız: {{error}}"
       },
@@ -729,11 +729,11 @@
       "title": "Hakkında",
       "version": {
         "title": "Sürüm",
-        "description": "Handy'nin mevcut sürümü"
+        "description": "Handier'nin mevcut sürümü"
       },
       "appDataDirectory": {
         "title": "Uygulama Veri Dizini",
-        "description": "Handy'nin verilerini sakladığı konum"
+        "description": "Handier'nin verilerini sakladığı konum"
       },
       "sourceCode": {
         "title": "Kaynak Kodu",
@@ -750,12 +750,12 @@
         "ggml": {
           "title": "ggml",
           "description": "Cihaz üzerinde makine öğrenmesi çıkarımı için yüksek performanslı tensör kütüphanesi",
-          "details": "Handy'nin yerel konuşmadan metne dönüştürme özelliği transcribe.cpp ve ggml üzerine kuruludur. Georgi Gerganov'a ve katkıda bulunanlara harika çalışmaları için teşekkür ederiz."
+          "details": "Handier'nin yerel konuşmadan metne dönüştürme özelliği transcribe.cpp ve ggml üzerine kuruludur. Georgi Gerganov'a ve katkıda bulunanlara harika çalışmaları için teşekkür ederiz."
         }
       },
       "whatsNewUpdates": {
         "label": "Yenilikleri Göster",
-        "description": "Handy güncellemelerinden sonra sürüm notlarını göster"
+        "description": "Handier güncellemelerinden sonra sürüm notlarını göster"
       }
     }
   },
@@ -784,7 +784,7 @@
     "noOptionsFound": "Seçenek bulunamadı"
   },
   "accessibility": {
-    "permissionsDescription": "Handy, transkribe edilen metni yazabilmek için erişilebilirlik izinlerine ihtiyaç duyar.",
+    "permissionsDescription": "Handier, transkribe edilen metni yazabilmek için erişilebilirlik izinlerine ihtiyaç duyar.",
     "openSettings": "Sistem Ayarlarını Aç"
   },
   "errors": {
@@ -807,11 +807,11 @@
   },
   "appLanguage": {
     "title": "Uygulama Dili",
-    "description": "Handy arayüzünün dilini değiştirin"
+    "description": "Handier arayüzünün dilini değiştirin"
   },
   "theme": {
     "title": "Uygulama Teması",
-    "description": "Handy'nin sistem temasını izlemesini ya da açık veya koyu kalmasını seçin",
+    "description": "Handier'nin sistem temasını izlemesini ya da açık veya koyu kalmasını seçin",
     "options": {
       "system": "Sistem",
       "light": "Açık",
@@ -823,7 +823,7 @@
     "processing": "İşleniyor..."
   },
   "whatsNew": {
-    "title": "Handy v{{version}} yenilikleri"
+    "title": "Handier v{{version}} yenilikleri"
   },
   "secureInput": {
     "blockedWithCulprit_one": "{{name}} 1 kısayolu engelliyor olabilir",

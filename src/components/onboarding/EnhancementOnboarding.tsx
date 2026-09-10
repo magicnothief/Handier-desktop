@@ -10,7 +10,7 @@ import {
   EnhanceModelCard,
   type EnhanceCardStatus,
 } from "@/components/settings/models/EnhanceModelCard";
-import HandyTextLogo from "../icons/HandyTextLogo";
+import HandierWordmark from "../icons/HandierWordmark";
 
 interface EnhancementOnboardingProps {
   onDone: () => void;
@@ -117,7 +117,7 @@ export const EnhancementOnboarding: React.FC<EnhancementOnboardingProps> = ({
   return (
     <div className="h-screen w-screen flex flex-col p-6 gap-4 inset-0">
       <div className="flex flex-col items-center gap-2 shrink-0">
-        <HandyTextLogo width={200} />
+        <HandierWordmark width={200} />
         <p className="text-text/70 max-w-md font-medium mx-auto">
           {t("onboarding.enhance.subtitle")}
         </p>

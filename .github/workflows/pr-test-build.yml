@@ -47,7 +47,7 @@ jobs:
       # credentials, and those steps reference upstream's. Updater artefacts
       # are still signed -- that key is passed unconditionally in build.yml.
       sign-binaries: false
-      asset-prefix: "handy-pr-${{ inputs.pr_number }}"
+      asset-prefix: "handier-pr-${{ inputs.pr_number }}"
       upload-artifacts: true
       is-debug-build: ${{ contains(matrix.args, '--debug') }}
       ref: ${{ format('refs/pull/{0}/merge', inputs.pr_number) }}

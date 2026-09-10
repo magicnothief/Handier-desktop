@@ -20,7 +20,7 @@ from suite import ALL, check
 
 EXE = os.environ.get(
     "HANDY_LLM_BIN",
-    "D:/python/Handy-Flow/src-tauri/binaries/handy-llm-x86_64-pc-windows-msvc.exe",
+    "D:/python/Handy-Flow/src-tauri/binaries/handier-llm-x86_64-pc-windows-msvc.exe",
 )
 
 # Shared with the corpus builder and the app, so the bench cannot measure a

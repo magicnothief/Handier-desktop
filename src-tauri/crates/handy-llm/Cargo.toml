@@ -3,7 +3,7 @@ name = "handy-llm"
 version = "0.1.0"
 edition = "2021"
 license = "MIT"
-description = "Out-of-process GGUF inference sidecar for Handy's transcript enhancement layer"
+description = "Out-of-process GGUF inference sidecar for Handier's transcript enhancement layer"
 
 # Deliberately a separate crate from `handy`, not another dependency of it.
 # `transcribe-cpp` and `llama.cpp` each vendor a full ggml; linking both into
@@ -14,7 +14,7 @@ description = "Out-of-process GGUF inference sidecar for Handy's transcript enha
 # sidecar instead of the user's dictation app.
 
 [[bin]]
-name = "handy-llm"
+name = "handier-llm"
 path = "src/main.rs"
 
 [features]

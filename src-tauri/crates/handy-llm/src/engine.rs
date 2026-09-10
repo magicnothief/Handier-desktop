@@ -97,7 +97,7 @@ impl Engine {
             Ok(m) => m,
             Err(e) if requested > 0 => {
                 eprintln!(
-                    "handy-llm: GPU load failed ({e:#}); retrying on CPU. \
+                    "handier-llm: GPU load failed ({e:#}); retrying on CPU. \
                      Enhancement will be slower but still works."
                 );
                 self.try_load(path, 0)
@@ -142,8 +142,8 @@ impl Engine {
         let system = "You edit dictated speech into the text the speaker meant to write.              Remove filler words and hesitations. Fix sentence boundaries, capitalisation              and punctuation. If the speaker corrects themselves, delete the abandoned              wording and keep only what they settled on. Reply with the edited text and              nothing else, with no preamble, explanation or quotation marks around it.              Keep the speaker's own words, voice and language throughout the reply.";
         let user = "um so the quarterly planning meeting is uh moved to friday afternoon              instead of thursday morning because several people have a conflict";
         match self.generate(system, user, 16, true) {
-            Ok(_) => eprintln!("handy-llm: warm-up took {:?}", started.elapsed()),
-            Err(e) => eprintln!("handy-llm: warm-up failed (ignored): {e:#}"),
+            Ok(_) => eprintln!("handier-llm: warm-up took {:?}", started.elapsed()),
+            Err(e) => eprintln!("handier-llm: warm-up failed (ignored): {e:#}"),
         }
     }
 
@@ -202,7 +202,7 @@ impl Engine {
         // Which path served a given GGUF is invisible from the outside, and
         // getting it wrong means measuring a prompt the app never sends.
         if std::env::var_os("HANDY_LLM_DEBUG_PROMPT").is_some() {
-            eprintln!("handy-llm: templated={templated} prompt={prompt:?}");
+            eprintln!("handier-llm: templated={templated} prompt={prompt:?}");
         }
 
         // A chat template that needs a BOS emits one as text, so adding another
@@ -284,7 +284,7 @@ impl Engine {
         let text =
             String::from_utf8(bytes).map_err(|e| anyhow!("model produced invalid UTF-8: {e}"))?;
         if env_flag("HANDY_LLM_DEBUG_PROMPT") {
-            eprintln!("handy-llm: raw completion={text:?}");
+            eprintln!("handier-llm: raw completion={text:?}");
         }
         Ok(strip_thinking(&text).to_string())
     }

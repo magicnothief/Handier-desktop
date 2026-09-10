@@ -28,13 +28,13 @@ fn main() {
     let mut engine = match Engine::new() {
         Ok(e) => e,
         Err(e) => {
-            eprintln!("handy-llm: fatal: {e:#}");
+            eprintln!("handier-llm: fatal: {e:#}");
             std::process::exit(1);
         }
     };
 
     eprintln!(
-        "handy-llm: ready (gpu backend: {})",
+        "handier-llm: ready (gpu backend: {})",
         if engine::HAS_GPU_BACKEND { "yes" } else { "no" }
     );
 
@@ -42,7 +42,7 @@ fn main() {
         let line = match line {
             Ok(l) => l,
             Err(e) => {
-                eprintln!("handy-llm: stdin closed: {e}");
+                eprintln!("handier-llm: stdin closed: {e}");
                 break;
             }
         };
@@ -133,7 +133,7 @@ fn respond(out: &mut std::io::Stdout, response: &Response) {
             }
         }
         Err(e) => {
-            eprintln!("handy-llm: failed to serialise response: {e}");
+            eprintln!("handier-llm: failed to serialise response: {e}");
             return;
         }
     }
